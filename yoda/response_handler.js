@@ -21,5 +21,33 @@ let std_quotes = ["Patience you must have, my young padawan.",
 
 function respond() {
     // Your Code Here
-    console.log("Hello World!");
+
+    text = document.getElementById("textbox").value
+
+    img_new = ""
+    quote_new = ""
+    if (text.includes("cute") || text.includes("baby")) {
+        if (text.includes("dark") && text.includes("force"))
+            img_new = "img/cute-dark.jpg"
+        else if (text.includes("force"))
+            img_new = "img/cute-force.jpg"
+        else
+            img_new = "img/cute-std.jpg"
+        quote_new = "h" + "m".repeat(1 + 20 * Math.random())
+    } else {
+        if (text.includes("dark") && text.includes("force")) {
+            img_new = "img/regular-dark.jpg"
+            quote_new = dark_quotes[Math.floor(Math.random() * dark_quotes.length)]
+        } else if (text.includes("force")) {
+            img_new = "img/regular-force.jpg"
+            quote_new = force_quotes[Math.floor(Math.random() * force_quotes.length)]
+        } else {
+            img_new = "img/regular-std.jpg"
+            quote_new = std_quotes[Math.floor(Math.random() * std_quotes.length)]
+        }
+    }
+    document.getElementById("yoda_image").setAttribute("src", img_new)
+    document.getElementById("quote").innerHTML = quote_new
+
+    document.getElementById("textbox").value = ""
 }
