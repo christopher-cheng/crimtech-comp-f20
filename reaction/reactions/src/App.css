@@ -29,7 +29,12 @@
 }
 
 .PanelContainer {
-  /* TODO: Your CSS Here! */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-grow: 1;
 }
 
 .Panel {
